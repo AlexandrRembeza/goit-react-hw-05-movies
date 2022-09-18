@@ -6,7 +6,7 @@ export const Form = styled.form`
 `;
 export const Input = styled.input`
   display: inline-block;
-  width: 300px;
+  max-width: 250px;
   height: 30px;
   font-size: 22px;
 
