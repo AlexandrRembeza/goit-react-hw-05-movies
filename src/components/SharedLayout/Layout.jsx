@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { RotatingLines } from 'react-loader-spinner';
 
 import { Box } from 'components/Box';
 import { HeaderMenuList, Item, StyledLink } from './Layout.styled';
@@ -30,7 +31,17 @@ export const Layout = () => {
         </Box>
       </Box>
 
-      <Suspense>
+      <Suspense
+        fallback={
+          <RotatingLines
+            strokeColor="#d22f2f"
+            strokeWidth="4"
+            animationDuration="0.75"
+            width="70"
+            visible={true}
+          />
+        }
+      >
         <Outlet />
       </Suspense>
     </Box>

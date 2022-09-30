@@ -1,5 +1,7 @@
 import { MoviePage } from 'components/MoviePage';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   return <MoviePage />;
 };
+
+export default MovieDetails;

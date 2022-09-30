@@ -2,6 +2,7 @@ import { useLocation, useParams, Outlet } from 'react-router-dom';
 import { useEffect, useState, Suspense } from 'react';
 import { BiArrowBack } from 'react-icons/bi';
 import PropTypes from 'prop-types';
+import { RotatingLines } from 'react-loader-spinner';
 
 import { API } from 'services';
 import {
@@ -47,15 +48,25 @@ export const MoviePage = () => {
       </Box>
       <Box py="20px" borderBottom="3px solid #d22f2f">
         <AdditionalInfo>Additional Information</AdditionalInfo>
-        <StyledNavLink to="cast" state={{ from: location.state.from }}>
+        <StyledNavLink to="cast" state={{ from: backLinkHref }}>
           Cast
         </StyledNavLink>
-        <StyledNavLink to="reviews" state={{ from: location.state.from }}>
+        <StyledNavLink to="reviews" state={{ from: backLinkHref }}>
           Reviews
         </StyledNavLink>
       </Box>
 
-      <Suspense>
+      <Suspense
+        fallback={
+          <RotatingLines
+            strokeColor="#d22f2f"
+            strokeWidth="4"
+            animationDuration="0.75"
+            width="70"
+            visible={true}
+          />
+        }
+      >
         <Outlet />
       </Suspense>
     </Box>

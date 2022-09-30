@@ -1,5 +1,7 @@
 import { FindMovie } from 'components/FindMovie';
 
-export const Movies = () => {
+const Movies = () => {
   return <FindMovie />;
 };
+
+export default Movies;
